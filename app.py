@@ -10,7 +10,7 @@ def index():
 def add_name():
     name = request.form['name']
     names.append(name)
-    return render_template('index.html', names=names)
-    
+    return redirect(url_for('index'))
+
 if __name__ == '__main__':
     app.run(debug=True)
