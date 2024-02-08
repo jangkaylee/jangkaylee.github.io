@@ -6,6 +6,7 @@ app = Flask(__name__)
 def index():
     return render_template('index.html', names=names)
 
+@app.route('/add_name', methods=['GET', 'POST'])
 def add_name():
     if request.method == 'POST':
         name = request.form['name']
