@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta names="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enter Your Name</title>
 </head>
 <body>
     <h1>Enter Your Name</h1>
     <form action="/add_name" method="post">
-        <input type="text" name="name" placeholder="Enter your name" required>
+        <input type="text" names="names" placeholder="Enter your name" required>
         <button type="submit">Submit</button>
     </form>
     <h2>Names Entered:</h2>
     <ul>
-        {% for name in names %}
-            <li>{{ name }}</li>
+        {% for names in names %}
+            <li>{{ names }}</li>
         {% endfor %}
     </ul>
 </body>

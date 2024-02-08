@@ -9,8 +9,8 @@ def index():
 @app.route('/add_name', methods=['POST'])
 def add_name():
     if request.method == 'POST':
-        name = request.form['name']
-        names.append(name)
+        names = request.form['names']
+        names.append(names)
         return redirect(url_for('index'))
     else:
         return redirect(url_for('index'))
