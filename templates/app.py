@@ -1,19 +1,18 @@
-from flask import Flask, request, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
+entries = []
+
 @app.route('/')
 def index():
-    return render_template('index.html', names=names)
+    return render_template('index.html', entries=entries)
 
-@app.route('/add_name', methods=['POST'])
-def add_name():
-    if request.method == 'POST':
-        names = request.form['names']
-        names.append(names)
-        return redirect(url_for('index'))
-    else:
-        return redirect(url_for('index'))
+@app.route('/submit', methods=['POST'])
+def submit():
+    entry = request.form['entry']
+    entries.append(entry)
+    return render_template('index.html', entries=entries)
 
 if __name__ == '__main__':
     app.run(debug=True)

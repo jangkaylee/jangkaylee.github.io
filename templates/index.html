@@ -2,19 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta names="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enter Your Name</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Text Entry</title>
 </head>
 <body>
-    <h1>Enter Your Name</h1>
-    <form action="/add_name" method="post">
-        <input type="text" names="names" placeholder="Enter your name" required>
-        <button type="submit">Submit</button>
+    <h1>Simple Text Entry</h1>
+    <form action="/submit" method="post">
+        <label for="entry">Enter Text:</label><br>
+        <textarea id="entry" name="entry" rows="4" cols="50"></textarea><br>
+        <input type="submit" value="Submit">
     </form>
-    <h2>Names Entered:</h2>
+    <h2>Submitted Entries:</h2>
     <ul>
-        {% for names in names %}
-            <li>{{ names }}</li>
+        {% for entry in entries %}
+            <li>{{ entry }}</li>
         {% endfor %}
     </ul>
 </body>
