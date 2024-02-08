@@ -4,12 +4,13 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', names=names)
 
-@app.route('/greet', methods=['POST'])
-def greet():
+@app.route('/add_name', methods=['POST'])
+def add_name():
     name = request.form['name']
-    return render_template('greet.html', name=name)
-
+    names.append(name)
+    return render_template('index.html', names=names)
+    
 if __name__ == '__main__':
     app.run(debug=True)
